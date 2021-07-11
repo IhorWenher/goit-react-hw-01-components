@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TableTemplate from './Table-template';
+import Styles from './Transaction-history.module.css';
 
 const TransactionHistory = ({ transactions }) => {
   return (
-    <div>
-      <table className="transaction-history">
+    <div className={Styles.container}>
+      <table className={Styles.table}>
         <thead>
-          <tr>
+          <tr className={Styles.head}>
             <th>Type</th>
             <th>Amount</th>
             <th>Currency</th>
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className={Styles.tbody}>
           {transactions.map(transaction => {
             return (
               <TableTemplate
@@ -33,7 +34,11 @@ const TransactionHistory = ({ transactions }) => {
 };
 
 TransactionHistory.propTypes = {
-  transactions: PropTypes.array.isRequired,
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default TransactionHistory;

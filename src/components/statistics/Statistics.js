@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Styles from './Statistics.module.css';
+
+function generateColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+console.log(generateColor());
 
 const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      {title ? <h2 className="title"> Upload stats </h2> : null}
-      <ul className="stat-list">
+    <section className={Styles.section}>
+      {title ? <h2 className={Styles.title}> Upload stats </h2> : null}
+      <ul className={Styles.list}>
         {stats.map(stat => (
-          <li className="item" key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}%</span>
+          <li
+            className={Styles.item}
+            key={stat.id}
+            style={{ backgroundColor: generateColor() }}
+          >
+            <span className={Styles.label}>{stat.label}</span>
+            <span className={Styles.percentage}>{stat.percentage}%</span>
           </li>
         ))}
       </ul>
@@ -19,7 +30,11 @@ const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default Statistics;

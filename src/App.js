@@ -7,11 +7,11 @@ import FriendList from './components/friend-list/Friend-list';
 import friends from './components/friend-list/friends.json';
 import TransactionHistory from './components/transaction-history/Transaction-history';
 import transactions from './components/transaction-history/transactions.json';
+import Styles from './App.module.css';
 
 const App = () => {
   return (
-    <div>
-      <h1>React, ДЗ №1, Венгер</h1>
+    <div className={Styles.container}>
       <h2>Профиль социальной сети</h2>
       <SocialProfile user={user} />
       <h2>Секция статистики</h2>

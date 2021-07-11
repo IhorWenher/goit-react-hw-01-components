@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultAvatar from './default-avatar.svg';
+import Styles from './SocialProfileTemplate.module.css';
 
 const SocialProfileTemplate = ({
   name,
@@ -12,24 +13,25 @@ const SocialProfileTemplate = ({
   likes,
 }) => {
   return (
-    <div className="profile">
+    <div className={Styles.profile}>
       <div className="description">
-        <img src={avatar} alt="Аватар пользователя" className="avatar" />
-        <p className="name"> {name} </p> <p className="tag"> @ {tag} </p>{' '}
-        <p className="location"> {location} </p>
+        <img src={avatar} alt="Аватар пользователя" className={Styles.avatar} />
+        <p className={Styles.name}> {name} </p>
+        <p className={Styles.tag}> @ {tag} </p>
+        <p className={Styles.location}> {location} </p>{' '}
       </div>
-      <ul className="stats">
+      <ul className={Styles.stats}>
         <li>
-          <span className="label"> Followers </span>
-          <span className="quantity"> {followers} </span>
+          <span className={Styles.label}> Followers </span>{' '}
+          <span className={Styles.quantity}> {followers} </span>{' '}
         </li>
         <li>
-          <span className="label"> Views </span>
-          <span className="quantity"> {views} </span>
+          <span className={Styles.label}> Views </span>{' '}
+          <span className={Styles.quantity}> {views} </span>{' '}
         </li>
         <li>
-          <span className="label"> Likes </span>
-          <span className="quantity"> {likes} </span>
+          <span className={Styles.label}> Likes </span>{' '}
+          <span className={Styles.quantity}> {likes} </span>{' '}
         </li>
       </ul>
     </div>
