@@ -11,7 +11,7 @@ console.log(generateColor());
 const Statistics = ({ title, stats }) => {
   return (
     <section className={Styles.section}>
-      {title ? <h2 className={Styles.title}> Upload stats </h2> : null}
+      {title && <h2 className={Styles.title}> Upload stats </h2>}
       <ul className={Styles.list}>
         {stats.map(stat => (
           <li
